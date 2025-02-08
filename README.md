@@ -26,10 +26,10 @@ Pls find and list down the elements that are highlighted and you're certain abou
 Pls dont make up something does not highlighted.
 ```
 
-## Inter## Interpreting the results from Visual fidelity test with LLM (Step 2 (Optional) - Finding the impacted code)
+## Interpreting the results from Visual fidelity test with LLM (Step 2 (Optional) - Finding the impacted code)
 - Required context from codebase, figma API
 ```text
-The previous agent has indentified these mismatch elements (Captured on live website) from expected figma design, please find and return only the relavant code  by using the figma data and the code given. 
+The previous agent has identified these mismatch elements (Captured on live website) from expected figma design, please find and return only the relavant code  by using the figma data and the code given. 
 
 Previous agent results:
 
