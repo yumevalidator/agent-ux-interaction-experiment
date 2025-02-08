@@ -1,0 +1,97 @@
+{
+  "type": "fidelity",
+  "name": "fidelity-name",
+  "commitHash": "235151380c6dd3dd29ed6914558e65748388942f",
+  "createdAt": 1738989067305,
+  "overallFidelityScore": 0.3323070796189076,
+  "pairs": [
+    {
+      "type": "image",
+      "outcome": "success",
+      "actual": {
+        "type": "image",
+        "id": "TestWireframe",
+        "groupId": "TestWireframe",
+        "image": {
+          "type": "hosted",
+          "url": ""
+        },
+        "tags": [],
+        "path": "TestWireframe.png"
+      },
+      "expected": {
+        "type": "image",
+        "id": "TestWireframe",
+        "groupId": "TestWireframe",
+        "image": {
+          "type": "hosted",
+          "url": ""
+        },
+        "tags": [],
+        "path": "TestWireframe.png"
+      },
+      "comparison": {
+        "type": "image",
+        "diff": {
+          "type": "hosted",
+          "url": ""
+        },
+        "overlap": {
+          "type": "hosted",
+          "url": ""
+        },
+        "normalizedActual": {
+          "type": "hosted",
+          "url": ""
+        },
+        "normalizedExpected": {
+          "type": "hosted",
+          "url": ""
+        },
+        "similarity": 0.3323070796189076
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "TestWireframe",
+      "status": "success",
+      "hash": "d5fd56e8379319bb51808747dad2ac31"
+    }
+  ],
+  "summary": {
+    "result": "success",
+    "stats": [
+      {
+        "type": "gauge",
+        "name": "Overall Fidelity",
+        "value": 0.3323070796189076,
+        "description": "The average fidelity score among test entries.",
+        "sentiment": "info"
+      },
+      {
+        "type": "fraction",
+        "name": "Successful",
+        "numerator": 1,
+        "denominator": 1,
+        "description": "The total number of test entries that have a fidelity higher than the threshold",
+        "sentiment": "success"
+      },
+      {
+        "type": "fraction",
+        "name": "Failed",
+        "numerator": 0,
+        "denominator": 1,
+        "description": "The total number of test entries that have a fidelity lower than the threshold",
+        "sentiment": "success"
+      },
+      {
+        "type": "gauge",
+        "name": "Test Counts",
+        "value": 1,
+        "description": "The total number of test entries",
+        "sentiment": "info"
+      }
+    ]
+  }
+}

@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Usage
 
-## Getting Started
+## Running Visual fidelity test
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```shell
+npx @animaapp/scooby-cli fidelity \
+  --name "fidelity-name" \
+  --expected full-path/expected \
+  --actual full-path/actual \
+  --file-type=png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Visualizing Visual fidelity test
+- Unzip `fidelity-name.zip` 
+- Execute `jsonParser.py`
+- Should see 'report.json'
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Interpreting the results from Visual fidelity test with LLM (Step 1 - Finding the unmatched elements)
+- Upload `extracted_images/image_2.png` with the following prompt
+```text
+You are a UI/UX master
+image_2.png consists of highlight of mismatched elements (in brighter red) from the figma design as compared to actual implementation. Whatever in opaque are matched design.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pls find and list down the elements that are highlighted and you're certain about for the next agent that has access to the codebase and figma to find out the exact properties mismatched.
 
-## Learn More
+Pls dont make up something does not highlighted.
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Inter## Interpreting the results from Visual fidelity test with LLM (Step 2 (Optional) - Finding the impacted code)
+- Required context from codebase, figma API
+```text
+The previous agent has indentified these mismatch elements (Captured on live website) from expected figma design, please find and return only the relavant code  by using the figma data and the code given. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Previous agent results:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Figma:
 
-## Deploy on Vercel
+Code:
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Getting Figma Data from API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```shell
+#Get all and look for request name id
+curl -H 'X-FIGMA-TOKEN: figd_-ylG4Ixh-X9L98_jRuaIKjBr2vywNDEU1rj-VKvQ' 'https://api.figma.com/v1/files/qfAi3x35SdKWzSWOrV4j8i'
+
+#Get Specify (required the request name id to filter)
+curl -H 'X-FIGMA-TOKEN: figd_-ylG4Ixh-X9L98_jRuaIKjBr2vywNDEU1rj-VKvQ' 'https://api.figma.com/v1/files/qfAi3x35SdKWzSWOrV4j8i?ids=56:10669'
+```
