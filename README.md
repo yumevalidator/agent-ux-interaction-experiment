@@ -37,13 +37,3 @@ Figma:
 
 Code:
 ```
-
-### Getting Figma Data from API
-
-```shell
-#Get all and look for request name id
-curl -H 'X-FIGMA-TOKEN: figd_-ylG4Ixh-X9L98_jRuaIKjBr2vywNDEU1rj-VKvQ' 'https://api.figma.com/v1/files/qfAi3x35SdKWzSWOrV4j8i'
-
-#Get Specify (required the request name id to filter)
-curl -H 'X-FIGMA-TOKEN: figd_-ylG4Ixh-X9L98_jRuaIKjBr2vywNDEU1rj-VKvQ' 'https://api.figma.com/v1/files/qfAi3x35SdKWzSWOrV4j8i?ids=56:10669'
-```
